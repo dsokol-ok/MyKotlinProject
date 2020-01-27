@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Управление заказами</string>
+    <string name="products_text">Продукты</string>
+    <string name="add_product">Создать новый продукт</string>
+    <string name="done">Готово</string>
+    <string name="addProduct">Создание продукта</string>
+    <string name="price">Цена</string>
+    <string name="nameProduct">Наименование: </string>
+    <string name="header_clients">Клиенты</string>
+    <string name="add_client">Создать клиента</string>
+    <string name="login">Логин</string>
+    <string name="fullName">ФИО</string>
+    <string name="addClient">Создать клиента</string>
+    <string name="addOrder">Создать заказ</string>
+    <string name="dateOfBirth">Дата рождения</string>
+    <string name="password">Пароль</string>
+    <string name="header_orders">Заказы</string>
+    <string name="add_order">Создать заказ</string>
+    <string name="setDate">Установить дату</string>
+    <string name="title_products">Товары</string>
+    <string name="title_orders">Заказы</string>
+    <string name="title_clients">Клиенты</string>
+    <string name="client">Клиент</string>
+    <string name="products">Товары</string>
+</resources>
