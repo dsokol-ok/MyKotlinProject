@@ -11,7 +11,7 @@ class OrderAdapter (val items : List<Order>, val context: Context) : RecyclerVie
 
     // Gets the number of animals in the list
     override fun getItemCount(): Int {
-        return items.size
+        return items.count()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {

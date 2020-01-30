@@ -62,7 +62,6 @@ class OrdersActivity : AppCompatActivity() {
 
                 //selectedFragment = ProductsFragment()
 
-
                 startActivity(MainActivity.newInstance(this))
                 //return@OnNavigationItemSelectedListener true
             }
@@ -99,24 +98,5 @@ class OrdersActivity : AppCompatActivity() {
         startActivity(AddOrderActivity.newInstance(this))
 
     }
-/*
-    fun nextScreenProducts(view: View) {
 
-        val hi =  Toast.makeText(applicationContext,"Переходим в продукты! :)", Toast.LENGTH_SHORT)
-        hi.show()
-
-        startActivity(MainActivity.newInstance(this))
-
-    }
-
-    fun nextScreenClients(view: View) {
-
-        val hi =  Toast.makeText(applicationContext,"Переходим в клиенты! :)", Toast.LENGTH_SHORT)
-        hi.show()
-
-        startActivity(ClientsActivity.newInstance(this))
-
-    }
-
- */
 }

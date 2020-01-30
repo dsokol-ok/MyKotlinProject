@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.android.synthetic.main.activity_addorder.*
 import kotlinx.coroutines.Dispatchers
@@ -25,6 +27,11 @@ class AddOrderActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
             return Intent(context, AddOrderActivity::class.java)
         }
     }
+
+    private val _livedata = MutableLiveData<List<Product>>()
+
+    val liveData: LiveData<List<Product>>
+        get() = _livedata
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

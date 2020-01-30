@@ -74,7 +74,10 @@
             android:id="@+id/clients"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:textSize="18sp" />
+            android:background="@color/design_default_color_background"
+            android:popupBackground="@color/design_default_color_background"
+            android:spinnerMode="dialog"
+            android:textSize="24sp" />
     </LinearLayout>
 
     <TextView
@@ -95,15 +98,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <EditText
-        android:id="@+id/products_editText"
+    <Button
+        android:id="@+id/order_addProducts"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
+        android:text="@string/order_addProducts"
         android:fontFamily="sans-serif-condensed-light"
-        android:inputType="textPersonName"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,6 +114,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/products_textView" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/products_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/addOrder_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_addProducts"
+        app:layout_constraintVertical_bias="0.0"
+        tools:context="com.google.samples.apps.sunflower.GardenActivity" />
 
     <Button
         android:id="@+id/addOrder_button"

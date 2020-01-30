@@ -28,9 +28,9 @@ class MainVeiwModel : ViewModel() {
 
     }
 
-    private val _livedata = MutableLiveData<List<String>>()
+    private val _livedata = MutableLiveData<List<Product>>()
 
-    val liveData: LiveData<List<String>>
+    val liveData: LiveData<List<Product>>
     get() = _livedata
 
     //ORDER

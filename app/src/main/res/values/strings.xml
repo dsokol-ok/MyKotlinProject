@@ -22,4 +22,5 @@
     <string name="title_clients">Клиенты</string>
     <string name="client">Клиент</string>
     <string name="products">Товары</string>
+    <string name="order_addProducts">Добавить товары</string>
 </resources>
