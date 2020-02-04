@@ -3,7 +3,6 @@ package com.example.mykotlinproject
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -36,13 +35,13 @@ class AddProductsInOrder: AppCompatActivity() {
 
         viewModel.viewModelScope.launch {
 
-            val getProductsOrder = viewModel.liveData
+            val getProductsOrder = viewModel.liveDataProducts
             //заполнение экрана продуктами
 
             val hi =  Toast.makeText(applicationContext,"заполняем :)", Toast.LENGTH_SHORT)
             hi.show()
 
-             Log.i("getResultProducts", getProductsOrder.toString())
+             //Log.i("getResultProducts", getProductsOrder.toString())
 
             // Creates a vertical Layout Manager
             products_list.layoutManager = LinearLayoutManager(this@AddProductsInOrder)

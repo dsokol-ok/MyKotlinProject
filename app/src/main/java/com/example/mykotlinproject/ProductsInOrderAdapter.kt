@@ -13,7 +13,7 @@ class ProductsInOrderAdapter (private val items : LiveData<List<Product>>, val c
 
     // Gets the number of animals in the list
     override fun getItemCount(): Int {
-        return items.count()
+        return items.value!!.count()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
@@ -23,17 +23,13 @@ class ProductsInOrderAdapter (private val items : LiveData<List<Product>>, val c
     // Binds each product in the ArrayList to a view
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
-        val itemGet = items[position]
+        val itemGet = items.value?.get(position)
 
         holder.tvProductType?.text =
-            """Артикул: ${itemGet.Articul}
-${itemGet.Description}  Цена:  ${itemGet.Price}""".trimIndent()
+            """Артикул: ${itemGet?.Articul}
+${itemGet?.Description}  Цена:  ${itemGet?.Price}""".trimIndent()
 
     }
-}
-
-private operator fun <T> LiveData<T>.get(position: Int): Product {
-
 }
 
 class ProductsViewHolder (view: View) : RecyclerView.ViewHolder(view) {

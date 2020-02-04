@@ -28,10 +28,15 @@ class MainVeiwModel : ViewModel() {
 
     }
 
-    private val _livedata = MutableLiveData<List<Product>>()
+    private val _liveDataProducts = MutableLiveData<List<Product>>()
 
-    val liveData: LiveData<List<Product>>
-    get() = _livedata
+    val liveDataProducts: LiveData<List<Product>>
+    get() = _liveDataProducts
+
+    fun setliveData(data: List<Product>){
+        if (data.isNotEmpty())
+        _liveDataProducts.value = data
+    }
 
     //ORDER
     suspend fun createNewOrder(order: Order): Response<ResponseBody> {

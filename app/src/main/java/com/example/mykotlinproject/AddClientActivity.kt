@@ -54,9 +54,14 @@ class AddClientActivity : AppCompatActivity() {
     // установка обработчика выбора даты
     private var d =
         OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            //val date =
+
+            /*
             dateAndTime[Calendar.YEAR] = year
             dateAndTime[Calendar.MONTH] = monthOfYear
             dateAndTime[Calendar.DAY_OF_MONTH] = dayOfMonth
+
+             */
             setInitialDateTime()
         }
 
@@ -66,7 +71,7 @@ class AddClientActivity : AppCompatActivity() {
             this,
             dateAndTime.timeInMillis,
             DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_SHOW_YEAR
-            //or DateUtils.FORMAT_SHOW_TIME
+            or DateUtils.FORMAT_SHOW_TIME
         )
     }
 
@@ -87,7 +92,9 @@ class AddClientActivity : AppCompatActivity() {
         Log.i("applicationForClient", "password = ${Password}, dateOfBirth = " + dateOfBirth.text)
         val newClient = Client(Description, Login, Password, dateOfBirth.text.toString())
 
-        Log.i("dateOfBirth.text", dateOfBirth.text.toString())
+        Log.i("dateOfBirth.text",
+            dateOfBirth.text.toString()
+        )
 
             viewModel.viewModelScope.launch {
                 Log.i("попали", " В viewModel.viewModelScope.launch")
