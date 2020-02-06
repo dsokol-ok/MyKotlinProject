@@ -54,14 +54,13 @@ class AddClientActivity : AppCompatActivity() {
     // установка обработчика выбора даты
     private var d =
         OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-            //val date =
+            //val date = OffsetDateTime.
 
-            /*
             dateAndTime[Calendar.YEAR] = year
             dateAndTime[Calendar.MONTH] = monthOfYear
             dateAndTime[Calendar.DAY_OF_MONTH] = dayOfMonth
 
-             */
+
             setInitialDateTime()
         }
 

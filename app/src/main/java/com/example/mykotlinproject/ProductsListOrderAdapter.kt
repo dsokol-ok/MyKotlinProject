@@ -1,12 +1,14 @@
 package com.example.mykotlinproject
 
+import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.product_list_item.view.*
 
 
-class ProductsListOrderAdapter() :
+class ProductsListOrderAdapter(val context: Context) :
     RecyclerView.Adapter<ProductsListOrderViewHolder>() {
 
     private val _items : MutableList<Product> = mutableListOf()
@@ -19,7 +21,7 @@ class ProductsListOrderAdapter() :
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsListOrderViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return ProductsListOrderViewHolder(LayoutInflater.from(context).inflate(R.layout.product_list_item, parent, false))
     }
 
     override fun getItemCount(): Int {

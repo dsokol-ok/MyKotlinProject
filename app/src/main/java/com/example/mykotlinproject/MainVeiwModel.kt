@@ -12,15 +12,16 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
+import java.util.concurrent.TimeUnit
 
 class MainVeiwModel : ViewModel() {
 
     companion object{
-        val httpClient = OkHttpClient.Builder()
+        val httpClient = OkHttpClient.Builder().readTimeout(1, TimeUnit.HOURS).writeTimeout(1, TimeUnit.HOURS)
             .build()
 
          val backendService = Retrofit.Builder()
-             .baseUrl("https://pastebin.com/raw/")
+             .baseUrl("http://10.5.194.198:5000/api/")
              //.baseUrl("https://10.10.0.118:5001/api/order")
              .client(httpClient)
              .addConverterFactory(GsonConverterFactory.create(Gson()))
@@ -108,7 +109,7 @@ interface ServiceCall {
     //suspend fun getOrders(): ArrayList<Order>
 
     //test
-    @GET ( "6WRkSNWr")
+    @GET ( "rtkb26zZ")
     suspend fun getOrders():List<Order>
 
 
@@ -134,7 +135,7 @@ interface ServiceCall {
 
 
     //PRODUCT
-    @GET ( "api/product/{id}")
+    @GET ( "product/{id}")
     suspend fun getProduct(
         @Path("id") id: Int
     ): Product
@@ -143,10 +144,10 @@ interface ServiceCall {
     //suspend fun getProducts(): ArrayList<Product>
 
     //for test
-    @GET ( "NQzX9A32")
+    @GET ( "product")
     suspend fun getProducts(): List<Product>
 
-    @POST ( "NQzX9A32")
+    @POST ( "product")
     suspend fun createProduct(product: Product): Response<ResponseBody>
 
 }

@@ -9,7 +9,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.viewModelScope
 import kotlinx.android.synthetic.main.activity_addproduct.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AddProductActivity : AppCompatActivity() {
 
@@ -42,14 +44,14 @@ class AddProductActivity : AppCompatActivity() {
 
                 Log.i("applicationForProduct", "nameProduct = ${Description}, cost = $Price")
 
-                val newProduct = Product(Description, Price)
+                val newProduct = Product(Description, Price.toDouble())
 
                 Log.i("applicationForTest", "$newProduct")
 
                 Log.i("попали", " В addProduct_button.setOnClickListener")
                 viewModel.viewModelScope.launch {
                     Log.i("попали", " В viewModel.viewModelScope.launch")
-                    //val createResult = withContext(Dispatchers.IO){viewModel.createNewProduct(newProduct)}
+                    val createResult = withContext(Dispatchers.IO){viewModel.createNewProduct(newProduct)}
                     //обработка ответа
 
                     //Log.i("createResult", " $createResult")

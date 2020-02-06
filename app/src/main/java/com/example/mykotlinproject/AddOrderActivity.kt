@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_addorder.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,14 +31,8 @@ class AddOrderActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         }
     }
 
-    val adapterProduct = ProductsListOrderAdapter()
-/*
-    private val _livedata = MutableLiveData<List<Product>>()
+    val adapterProduct = ProductsListOrderAdapter(this@AddOrderActivity)
 
-    val liveData: LiveData<List<Product>>
-        get() = _livedata
-
- */
     //OBSERVER
     private val productsListNewObserver = Observer<List<Product>> {
         if(it == null) return@Observer
@@ -51,6 +46,7 @@ class AddOrderActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         setContentView(R.layout.activity_addorder)
 
         products_list.adapter = adapterProduct
+        products_list.layoutManager = LinearLayoutManager(this@AddOrderActivity)
 
         viewModel.liveDataProducts.observe(this, productsListNewObserver)
 
@@ -104,7 +100,6 @@ class AddOrderActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
             val listProducts = items.map (Product::Description).toTypedArray()
             val selectedList = ArrayList<Int>()
 
-            val selectedListProduct = ArrayList<Product>()
             val builder = AlertDialog.Builder(this@AddOrderActivity)
 
             builder.setTitle("Выберете товары, которое нужно поместить в заказ")
@@ -120,6 +115,7 @@ class AddOrderActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
 
                 .setPositiveButton("DONE") { dialogInterface, i ->
                     val selectedStrings = ArrayList<String>()
+                    val selectedListProduct = ArrayList<Product>()
 
                     for (j in selectedList.indices) {
                         selectedStrings.add(items[selectedList[j]].Description)

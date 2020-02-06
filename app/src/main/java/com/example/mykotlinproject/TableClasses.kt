@@ -32,12 +32,12 @@ data class Order(
 
 //@Entity(tableName = PRODUCT_TABLE_NAME)
 data class Product(
-    @SerializedName("Name") var Description: String,
-    @SerializedName("Price") var Price: Int,
-    @SerializedName("SKU") val Articul: String = "",
+    @SerializedName("name") var Description: String,
+    @SerializedName("price") var Price: Double,
+    @SerializedName("sku") val Articul: String = "",
 
-    @SerializedName("IsDeleted") var IsDeleted: Boolean = false,
-    @SerializedName("Id") val Id: Int = 0
+    @SerializedName("isDeleted") var IsDeleted: Boolean = false,
+    @SerializedName("id") val Id: Int = 0
 )
 
 /*
